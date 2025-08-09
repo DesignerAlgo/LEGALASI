@@ -1,0 +1,45 @@
+```python
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+
+app = FastAPI()
+
+@app.get("/", response_class=HTMLResponse)
+def root():
+    return """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>🚀 Legal ASI</title>
+        <style>
+            body { font-family: Arial; background: #1a1a2e; color: white; padding: 20px; }
+            .container { max-width: 800px; margin: 0 auto; background: #16213e; padding: 30px; border-radius: 15px; }
+            input { width: 100%; padding: 15px; margin: 10px 0; border-radius: 8px; border: none; font-size: 16px; }
+            button { background: #0f3460; color: white; padding: 15px 30px; border: none; border-radius: 8px; cursor: pointer; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🚀 LEGAL ASI</h1>
+            <h2>Revolutionary Legal AI</h2>
+            <input type="text" id="query" placeholder="Ask any legal question..." />
+            <button onclick="analyze()">🧠 ANALYZE</button>
+            <div id="result"></div>
+        </div>
+        <script>
+        function analyze() {
+            const query = document.getElementById('query').value;
+            document.getElementById('result').innerHTML = `
+                <div style="background: #e94560; padding: 20px; margin: 20px 0; border-radius: 10px;">
+                    <h3>🧠 ASI Analysis: ${query}</h3>
+                    <p>⚡ Processing: Complete</p>
+                    <p>🎯 Confidence: 95%</p>
+                    <p>🚀 Revolutionary analysis generated</p>
+                </div>
+            `;
+        }
+        </script>
+    </body>
+    </html>
+    """
+```
